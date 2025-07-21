@@ -1,0 +1,10 @@
+p{
+  color:red;
+}
+
+.active{
+  color: blue;
+}
+.not-active{
+  color: yellow;
+}
