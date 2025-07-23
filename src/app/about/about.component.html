@@ -1,1 +1,17 @@
 <p>about works!</p>
+<div class="row">
+  <div class="col-2">
+    <ul>
+      <li><a routerLink="web">web</a></li>
+      <li><a routerLink="mob">mob</a></li>
+    </ul>
+  </div>
+  <div class="col-10">
+    <router-outlet></router-outlet>
+    <ul>
+      @for (u of users; track u){
+        <li>{{u}}</li>
+      }
+    </ul>
+  </div>
+</div>

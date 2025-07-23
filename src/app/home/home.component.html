@@ -16,32 +16,53 @@ binding
 5- style binding
 <p [style.color]="isActive?'red':'green'">welcome to angular</p>
 
+6- two way binding
+<input [(ngModel)]="inputValue" type="text">
+<p>{{inputValue}}</p>
+
+7- ngClass
+[ngClass]="{'bg-info':post.id < 10,'bg-danger': post.id > 50}"
+
 --- directives
 -ngIf => @if{}@else{}
 -ngFor => @for{}
 -->
 <p>home</p>
+<!--<ul>-->
+<!--  @for (u of users; track u){-->
+<!--    <li>{{u}}</li>-->
+<!--  }-->
+<!--</ul>-->
 
-<h1>{{title}}</h1>
+<div class="row">
+  @for (post of posts; track post){
+    <div class="col-3">
+      <h3 [ngStyle]="{'color':post.id > 10?'red':'blue'}">{{post.title}}</h3>
+      <p>{{post.body}}</p>
+    </div>
+  }
+</div>
 
-<a [href]="link" target="_blank">google</a>
+<!--<h1>{{title}}</h1>-->
+
+<!--<a [href]="link" target="_blank">google</a>-->
 
 <!--<button (click)="alert('hello')">hello</button>-->
-<button (click)="sayHello()">hello</button>
+<!--<button (click)="sayHello()">hello</button>-->
 
 <!--ternary operator
 isActive == true? true : false
 -->
 
 
-<p [class.active]="isActive == true? true : false">lorem ipsum</p>
+<!--<p [class.active]="isActive == true? true : false">lorem ipsum</p>-->
 
-<p [class]="isActive == true? 'active' : 'not-active'">lorem ipsum</p>
+<!--<p [class]="isActive == true? 'active' : 'not-active'">lorem ipsum</p>-->
 
-<p [style.color]="isActive?'red':'green'">welcome to angular</p>
-<ul>
-  <li *ngFor="let user of users">{{user}}</li>
-</ul>
+<!--<p [style.color]="isActive?'red':'green'">welcome to angular</p>-->
+<!--<ul>-->
+<!--  <li *ngFor="let user of users">{{user}}</li>-->
+<!--</ul>-->
 
 <!--<h2 *ngIf="isActive">hello h2</h2>-->
 
@@ -57,13 +78,18 @@ isActive == true? true : false
 <!--  <h2>no data</h2>-->
 <!--</ng-template>-->
 
-@if (user.length >0){
-  @for (u of user; track u){
-    <div>
-      <h1>{{u.username}}</h1>
-      <p>{{u.age}}</p>
-    </div>
-  }
-} @else {
-  <h2>no data</h2>
-}
+<!--@if (user.length >0){-->
+<!--  @for (u of user; track u){-->
+<!--    <div>-->
+<!--      <h1>{{u.username}}</h1>-->
+<!--      <p>{{u.age}}</p>-->
+<!--    </div>-->
+<!--  }-->
+<!--} @else {-->
+<!--  <h2>no data</h2>-->
+<!--}-->
+
+<!--<input [(ngModel)]="inputValue" type="text">-->
+<!--<p>{{inputValue}}</p>-->
+
+
