@@ -5,10 +5,14 @@ import {ContactComponent} from './contact/contact.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {WebComponent} from './web/web.component';
 import {MobComponent} from './mob/mob.component';
+import {ProductsComponent} from './products/products.component';
+import {ProductDetailsComponent} from './product-details/product-details.component';
 
 export const routes: Routes = [
   {path:'', redirectTo:'home',pathMatch:'full'},
   {path:"home", component:HomeComponent},
+  {path:"product", component:ProductsComponent},
+  {path:"productDetails/:id", component:ProductDetailsComponent},
   {path:"about", component:AboutComponent,children:[
       {path:'', redirectTo:'web',pathMatch:'full'},
       {path:'web', component:WebComponent},

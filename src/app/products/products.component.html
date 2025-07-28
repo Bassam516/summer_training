@@ -1,0 +1,14 @@
+<input [(ngModel)]="searchTerm" type="text" class="form-control">
+<div class="row">
+  @for(product of products|search:searchTerm; track product.id){
+    <div class="col-3">
+     <div class="card">
+       <img [src]="product.image" class="img-fluid card-img" [alt]="product.title">
+       <h3 class="card-title">{{product.title|smallText}}</h3>
+       <p class="card-text">{{product.description|smallText}}</p>
+       <span>{{product.price|currency:'EUR'}}</span>
+       <button [routerLink]="['/productDetails',product.id]" class="btn btn-primary">Details</button>
+     </div>
+    </div>
+  }
+</div>
