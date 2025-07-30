@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {NgClass, NgForOf, NgIf, NgStyle} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {UserService} from '../user.service';
+import {NavComponent} from '../nav/nav.component';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,8 @@ import {UserService} from '../user.service';
     NgIf,
     FormsModule,
     NgClass,
-    NgStyle
+    NgStyle,
+    NavComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'

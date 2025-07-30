@@ -1,4 +1,60 @@
 <input [(ngModel)]="searchTerm" type="text" class="form-control">
+<h2>Add Product</h2>
+<form (ngSubmit)="addNewProduct(addProduct)" [formGroup]="addProduct" class="m-3">
+  <label for="title">title:</label>
+  <input formControlName="title" type="text" id="title" class="form-control">
+ @if(addProduct.get("title")?.errors && addProduct.get("title")?.touched){
+   <div class="alert alert-danger">
+     @if(addProduct.get("title")?.getError("required")){
+       <p>title is required</p>
+     }
+     @if(addProduct.get("title")?.getError("minlength")){
+     <p>minLength is 3</p>
+     }
+     @if(addProduct.get("title")?.getError("maxlength")){
+     <p>maxLength is 10</p>
+     }
+   </div>
+ }
+
+  <label for="price">price:</label>
+  <input formControlName="price" type="price" id="title" class="form-control">
+  @if(addProduct.get("price")?.errors && addProduct.get("price")?.touched){
+    <div class="alert alert-danger">
+      @if(addProduct.get("price")?.getError("required")){
+        <p>title is required</p>
+      }
+    </div>
+  }
+  <label for="description">description:</label>
+  <input formControlName="description" type="text" id="description" class="form-control">
+  @if(addProduct.get("description")?.errors && addProduct.get("description")?.touched){
+    <div class="alert alert-danger">
+      @if(addProduct.get("description")?.getError("required")){
+        <p>title is required</p>
+      }
+    </div>
+  }
+  <label for="category">category:</label>
+  <input formControlName="category" type="text" id="category" class="form-control">
+  @if(addProduct.get("category")?.errors && addProduct.get("category")?.touched){
+    <div class="alert alert-danger">
+      @if(addProduct.get("category")?.getError("required")){
+        <p>title is required</p>
+      }
+    </div>
+  }
+  <label for="image">image:</label>
+  <input formControlName="image" type="text" id="image" class="form-control">
+  @if(addProduct.get("image")?.errors && addProduct.get("image")?.touched){
+    <div class="alert alert-danger">
+      @if(addProduct.get("image")?.getError("required")){
+        <p>title is required</p>
+      }
+    </div>
+  }
+  <button [disabled]="!addProduct.valid" type="submit" class="btn btn-primary">Add</button>
+</form>
 <div class="row">
   @for(product of products|search:searchTerm; track product.id){
     <div class="col-3">

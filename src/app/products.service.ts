@@ -12,7 +12,13 @@ export class ProductsService {
   getProducts():Observable<any>{
     return this._HttpClient.get("https://fakestoreapi.com/products");
   }
+
   getProductDetails(id:any):Observable<any>{
     return this._HttpClient.get(`https://fakestoreapi.com/products/${id}`)
   }
+
+  addNewProduct(product:any):Observable<any>{
+      return this._HttpClient.post("https://fakestoreapi.com/products",product);
+  }
+
 }
