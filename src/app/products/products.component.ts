@@ -6,6 +6,7 @@ import {CurrencyPipe, LowerCasePipe, UpperCasePipe} from '@angular/common';
 import {SmallTextPipe} from '../small-text.pipe';
 import {SearchPipe} from '../search.pipe';
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
+import {ProductsHeadComponent} from '../products-head/products-head.component';
 
 @Component({
   selector: 'app-products',
@@ -17,7 +18,8 @@ import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} fr
     SmallTextPipe,
     SearchPipe,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ProductsHeadComponent
   ],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css'
@@ -26,7 +28,7 @@ export class ProductsComponent {
 
   products:Product[]=[];
   searchTerm:string = '';
-
+  messageFromChild:any;
   addProduct:FormGroup = new FormGroup({
     title:new FormControl(null, [Validators.required,Validators.minLength(3),Validators.maxLength(10)]),
     price:new FormControl(null, [Validators.required]),
@@ -56,4 +58,12 @@ export class ProductsComponent {
       }
     })
   }
+  recieveData(event:any){
+    this.messageFromChild = event;
+  }
+
+  addToCart(){
+    this._ProductsService.count.next(5);
+  }
+
 }

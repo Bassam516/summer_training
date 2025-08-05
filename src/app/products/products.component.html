@@ -1,3 +1,7 @@
+<app-products-head (dataFromChild)="recieveData($event)"  [dataFromParent]="products" ></app-products-head>
+
+{{messageFromChild}}
+<button (click)="addToCart()">Add to cart</button>
 <input [(ngModel)]="searchTerm" type="text" class="form-control">
 <h2>Add Product</h2>
 <form (ngSubmit)="addNewProduct(addProduct)" [formGroup]="addProduct" class="m-3">

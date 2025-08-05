@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
+
+  count:BehaviorSubject<any> = new BehaviorSubject(0);
 
   constructor(private _HttpClient:HttpClient) { }
 
@@ -19,6 +21,9 @@ export class ProductsService {
 
   addNewProduct(product:any):Observable<any>{
       return this._HttpClient.post("https://fakestoreapi.com/products",product);
+
   }
+
+
 
 }

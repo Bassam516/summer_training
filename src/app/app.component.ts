@@ -4,6 +4,7 @@ import {AboutComponent} from './about/about.component';
 import {ContactComponent} from './contact/contact.component';
 import {C2Component} from './c2/c2.component';
 import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
+import {NavComponent} from './nav/nav.component';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
     RouterOutlet,
     RouterLink,
     RouterLinkActive,
+    NavComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
